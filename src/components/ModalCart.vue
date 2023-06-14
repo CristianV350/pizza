@@ -66,14 +66,11 @@
 import { EventBus } from '@/utils/EventBus'
 
 export default {
-	data() {
-
-},
-methods: {
-	toggleCartModal() {
-		EventBus.emit('toggle-cart-modal')
+	methods: {
+		toggleCartModal() {
+			EventBus.emit('toggle-cart-modal')
+		}
 	}
-}
 }
 </script>
 

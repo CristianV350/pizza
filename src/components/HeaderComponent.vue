@@ -32,12 +32,6 @@
 import { EventBus } from '@/utils/EventBus';
 
 export default {
-  data() {
-
-  },
-  created() {
-
-  },
   methods: {
     toggleAuth() {
       EventBus.emit('toggle-auth-modal')
