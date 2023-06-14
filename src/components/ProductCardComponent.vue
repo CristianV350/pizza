@@ -1,22 +1,22 @@
 <template>
     <div class="card card-restaurant">
-        <img :src="generateImage(partner.image)" alt="image" class="card-image" />
+        <img :src="generateImage(food.image)" alt="image" class="card-image" />
         <div class="card-text">
             <div class="card-heading">
-                <h3 class="card-title card-title-reg">{{ product.name }}</h3>
+                <h3 class="card-title card-title-reg">{{ food.name }}</h3>
             </div>
             <!-- /.card-heading -->
             <div class="card-info">
-                <div class="ingredients">{{ partner.description }}
+                <div class="ingredients">{{ food.description }}
                 </div>
             </div>
             <!-- /.card-info -->
             <div class="card-buttons">
-                <button class="button button-primary button-add-cart">
+                <button class="button button-primary button-add-cart" @click="addToCart">
                     <span class="button-card-text">В корзину</span>
                     <span class="button-cart-svg"></span>
                 </button>
-                <strong class="card-price-bold">{{ partner.price }} ₽</strong>
+                <strong class="card-price-bold">{{ food.price }} ₽</strong>
             </div>
         </div>
         <!-- /.card-text -->
@@ -25,11 +25,12 @@
 </template>
 
 <script>
+import { EventBus } from "@/utils/EventBus";
 import { generateSlug } from "@/utils/utils";
 
 export default {
   props: {
-    partner: {
+    food: {
       type: Object,
       required: true,
       default: () => {}
@@ -41,6 +42,10 @@ export default {
     },
     generateImage(path) {
         return require('@/' + path)
+    },
+    addToCart() {
+        // logic for add to cart
+        EventBus.emit('toggle-cart-modal')
     }
   }
 };

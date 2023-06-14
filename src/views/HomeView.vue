@@ -55,7 +55,7 @@
 
 <script>
 // @ is an alias to /src
-import json from "../../db/db.json";
+import partners from "../../db/partners.json";
 import CardComponent from "@/components/CardComponent.vue";
 import { generateSlug } from "@/utils/utils";
 
@@ -64,12 +64,11 @@ export default {
   components: {CardComponent},
   computed: {
     partners() {
-      return json.db.partners
+      return partners
     }
   },
   methods: {
     generateName(name) {
-      console.log(name)
       return generateSlug(name)
     }
   }

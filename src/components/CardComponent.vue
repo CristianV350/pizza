@@ -1,6 +1,6 @@
 <template>
   <router-link
-    :to="{ name: 'category', params: { id: generateName(partner.name) } }"
+    :to="{ name: 'category', params: { id: generateName(partner.name), restaurant: partner } }"
     class="card card-restaurant"
   >
     <img :src="generateImage(partner.image)" alt="image" class="card-image" />
